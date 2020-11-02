@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KnapsackGenetic.UI
+namespace NQueens.UI
 {
     static class Program
     {

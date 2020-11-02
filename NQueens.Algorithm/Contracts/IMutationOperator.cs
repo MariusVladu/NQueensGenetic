@@ -1,6 +1,6 @@
-﻿using KnapsackGenetic.Domain;
+﻿using NQueens.Domain;
 
-namespace KnapsackGenetic.Algorithm.Contracts
+namespace NQueens.Algorithm.Contracts
 {
     public interface IMutationOperator
     {

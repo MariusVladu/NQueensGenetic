@@ -1,7 +1,7 @@
-﻿using KnapsackGenetic.Domain;
+﻿using NQueens.Domain;
 using System.Collections.Generic;
 
-namespace KnapsackGenetic.Providers.Contracts
+namespace NQueens.Providers.Contracts
 {
     public interface IInitialPopulationProvider
     {

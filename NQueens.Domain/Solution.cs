@@ -1,4 +1,4 @@
-﻿namespace KnapsackGenetic.Domain
+﻿namespace NQueens.Domain
 {
     public class Solution
     {

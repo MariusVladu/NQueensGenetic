@@ -1,15 +1,20 @@
-﻿using KnapsackGenetic.Algorithm.Contracts;
-using KnapsackGenetic.Domain;
+﻿using NQueens.Domain;
+using NQueens.Algorithm.Contracts;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace KnapsackGenetic.Algorithm
+namespace NQueens.Algorithm
 {
-    public class ElitistSelection : ISelectionOperator
+    public class ElitistSelection : IElitistSelection
     {
-        public Individual SelectOne(List<Solution> solutions)
+        public List<Solution> SelectMany(int n, List<Solution> solutions)
         {
-            return solutions.OrderBy(s => s.FitnessScore).First().Individual;
+            return solutions.OrderBy(s => s.FitnessScore).Take(n).ToList();
+        }
+
+        Solution IElitistSelection.SelectOne(List<Solution> solutions)
+        {
+            return solutions.OrderBy(s => s.FitnessScore).First();
         }
     }
 }

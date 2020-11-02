@@ -1,10 +1,10 @@
-﻿using KnapsackGenetic.Algorithm.Contracts;
-using KnapsackGenetic.Domain;
+﻿using NQueens.Algorithm.Contracts;
+using NQueens.Domain;
 using NQueens.Algorithm.Helpers;
 using System;
 using System.Collections.Generic;
 
-namespace KnapsackGenetic.Algorithm
+namespace NQueens.Algorithm
 {
     public class OrderOneCrossoverOperator : ICrossoverOperator
     {

@@ -1,7 +1,7 @@
-﻿using KnapsackGenetic.Domain;
+﻿using NQueens.Domain;
 using System;
 
-namespace KnapsackGenetic.Algorithm.Contracts
+namespace NQueens.Algorithm.Contracts
 {
     public interface ICrossoverOperator
     {

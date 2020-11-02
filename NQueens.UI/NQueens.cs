@@ -1,33 +1,32 @@
-﻿using KnapsackGenetic.Algorithm;
-using KnapsackGenetic.Algorithm.Contracts;
-using KnapsackGenetic.Domain;
-using KnapsackGenetic.Providers;
-using KnapsackGenetic.Providers.Contracts;
+﻿using NQueens.Algorithm;
+using NQueens.Algorithm.Contracts;
+using NQueens.Domain;
+using NQueens.Providers;
+using NQueens.Providers.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
-namespace KnapsackGenetic.UI
+namespace NQueens.UI
 {
     public partial class NQueens : Form
     {
         private GeneticAlgorithm geneticAlgorithm;
         private IFitnessFunction fitnessFunction;
         private ISelectionOperator selectionOperator;
-        private ISelectionOperator elitistSelection;
+        private IElitistSelection elitistSelection;
         private ICrossoverOperator crossoverOperator;
         private IMutationOperator mutationOperator;
         private IInitialPopulationProvider initialPopulationProvider;
         private Settings settings;
 
-        private int numberOfGenes;
-        private int weightLimit = 30;
-        private int numberOfElites = 1;
-        private int initialPopulationSize = 50;
+        private int boardSize;
+        private int numberOfElites = 4;
+        private int initialPopulationSize = 100;
+        private int maxPopulationSize = 100;
         private double crossoverRate = 0.5;
-        private double mutationRate = 0.05;
+        private double mutationRate = 0.1;
 
         private List<double> generationsPlotData;
         private List<double> averageScorePlotData;
@@ -38,25 +37,11 @@ namespace KnapsackGenetic.UI
             InitializeComponent();
 
             fitnessFunction = new FitnessFunction();
-            selectionOperator = new RouletteWheelSelection();
+            selectionOperator = new TournamentSelection(8);
             elitistSelection = new ElitistSelection();
             crossoverOperator = new OrderOneCrossoverOperator();
-            mutationOperator = new MutationOperator();
+            mutationOperator = new ScrambleMutationOperator();
             initialPopulationProvider = new InitialPopulationProvider();
-
-            var items = GetItems();
-            numberOfGenes = items.Count;
-
-            settings = new Settings
-            {
-                Items = GetItems(),
-                NumberOfGenes = numberOfGenes,
-                WeightLimit = weightLimit,
-                NumberOfElites = numberOfElites,
-                InitialPopulationSize = initialPopulationSize,
-                CrossoverRate = crossoverRate,
-                MutationRate = mutationRate
-            };
 
             InitializeGeneticAlgorithm();
 
@@ -69,30 +54,25 @@ namespace KnapsackGenetic.UI
 
         private void InitializeGeneticAlgorithm()
         {
+            boardSize = Convert.ToInt32(inputBoardSize.Value);
+
+            settings = new Settings
+            {
+                BoardSize = boardSize,
+                NumberOfGenes = boardSize,
+                NumberOfElites = numberOfElites,
+                InitialPopulationSize = initialPopulationSize,
+                MaxPopulationSize = maxPopulationSize,
+                CrossoverRate = crossoverRate,
+                MutationRate = mutationRate
+            };
+
             geneticAlgorithm = new GeneticAlgorithm(settings, initialPopulationProvider, fitnessFunction, selectionOperator, elitistSelection, crossoverOperator, mutationOperator);
 
             generationsPlotData = new List<double>();
             averageScorePlotData = new List<double>();
             bestScorePlotData = new List<double>();
             UpdatePlotData();
-        }
-
-        private List<Item> GetItems()
-        {
-            return new List<Item>
-            {
-                new Item{ Weight = 7, Value = 5},
-                new Item{ Weight = 2, Value = 4},
-                new Item{ Weight = 1, Value = 7},
-                new Item{ Weight = 9, Value = 2},
-                new Item{ Weight = 20, Value = 5},
-                new Item{ Weight = 11, Value = 6},
-                new Item{ Weight = 2, Value = 6},
-                new Item{ Weight = 15, Value = 10},
-                new Item{ Weight = 3, Value = 1},
-                new Item{ Weight = 4, Value = 2},
-                new Item{ Weight = 8, Value = 6},
-            };
         }
 
         private void buttonNextGeneration_Click(object sender, EventArgs e)
@@ -147,6 +127,12 @@ namespace KnapsackGenetic.UI
                 if (i % 50 == 0) Plot();
             }
 
+            Plot();
+        }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            InitializeGeneticAlgorithm();
             Plot();
         }
     }

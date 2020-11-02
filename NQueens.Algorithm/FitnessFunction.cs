@@ -1,8 +1,8 @@
-﻿using KnapsackGenetic.Algorithm.Contracts;
-using KnapsackGenetic.Domain;
+﻿using NQueens.Algorithm.Contracts;
+using NQueens.Domain;
 using System;
 
-namespace KnapsackGenetic.Algorithm
+namespace NQueens.Algorithm
 {
     public class FitnessFunction : IFitnessFunction
     {

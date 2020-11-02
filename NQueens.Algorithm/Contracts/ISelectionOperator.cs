@@ -1,7 +1,7 @@
-﻿using KnapsackGenetic.Domain;
+﻿using NQueens.Domain;
 using System.Collections.Generic;
 
-namespace KnapsackGenetic.Algorithm.Contracts
+namespace NQueens.Algorithm.Contracts
 {
     public interface ISelectionOperator
     {

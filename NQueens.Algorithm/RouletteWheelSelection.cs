@@ -1,10 +1,10 @@
-﻿using KnapsackGenetic.Algorithm.Contracts;
-using KnapsackGenetic.Domain;
+﻿using NQueens.Algorithm.Contracts;
+using NQueens.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace KnapsackGenetic.Algorithm
+namespace NQueens.Algorithm
 {
     public class RouletteWheelSelection : ISelectionOperator
     {
