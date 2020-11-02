@@ -39,13 +39,28 @@
             this.label2 = new System.Windows.Forms.Label();
             this.inputBoardSize = new System.Windows.Forms.NumericUpDown();
             this.buttonReset = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.inputElites = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.inputMaxPopulation = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.inputCrossoverRate = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.inputMutationRate = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.inputTournamentSize = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.inputGenerationsNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inputBoardSize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inputElites)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inputMaxPopulation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inputCrossoverRate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inputMutationRate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inputTournamentSize)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonNextGeneration
             // 
-            this.buttonNextGeneration.Location = new System.Drawing.Point(598, 12);
+            this.buttonNextGeneration.Location = new System.Drawing.Point(13, 12);
             this.buttonNextGeneration.Name = "buttonNextGeneration";
             this.buttonNextGeneration.Size = new System.Drawing.Size(113, 23);
             this.buttonNextGeneration.TabIndex = 0;
@@ -117,7 +132,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(68, 14);
+            this.label2.Location = new System.Drawing.Point(592, 132);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 15);
             this.label2.TabIndex = 4;
@@ -125,7 +140,7 @@
             // 
             // inputBoardSize
             // 
-            this.inputBoardSize.Location = new System.Drawing.Point(144, 10);
+            this.inputBoardSize.Location = new System.Drawing.Point(701, 130);
             this.inputBoardSize.Maximum = new decimal(new int[] {
             255,
             0,
@@ -147,7 +162,7 @@
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(221, 10);
+            this.buttonReset.Location = new System.Drawing.Point(668, 8);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(75, 23);
             this.buttonReset.TabIndex = 7;
@@ -155,11 +170,188 @@
             this.buttonReset.UseVisualStyleBackColor = true;
             this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(592, 161);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 15);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "# Elites";
+            // 
+            // inputElites
+            // 
+            this.inputElites.Location = new System.Drawing.Point(701, 159);
+            this.inputElites.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.inputElites.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.inputElites.Name = "inputElites";
+            this.inputElites.Size = new System.Drawing.Size(71, 23);
+            this.inputElites.TabIndex = 5;
+            this.inputElites.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(592, 190);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 15);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Max Population";
+            // 
+            // inputMaxPopulation
+            // 
+            this.inputMaxPopulation.Location = new System.Drawing.Point(701, 188);
+            this.inputMaxPopulation.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.inputMaxPopulation.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.inputMaxPopulation.Name = "inputMaxPopulation";
+            this.inputMaxPopulation.Size = new System.Drawing.Size(71, 23);
+            this.inputMaxPopulation.TabIndex = 5;
+            this.inputMaxPopulation.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(592, 219);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(85, 15);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Crossover Rate";
+            // 
+            // inputCrossoverRate
+            // 
+            this.inputCrossoverRate.DecimalPlaces = 2;
+            this.inputCrossoverRate.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.inputCrossoverRate.Location = new System.Drawing.Point(701, 217);
+            this.inputCrossoverRate.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.inputCrossoverRate.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.inputCrossoverRate.Name = "inputCrossoverRate";
+            this.inputCrossoverRate.Size = new System.Drawing.Size(71, 23);
+            this.inputCrossoverRate.TabIndex = 5;
+            this.inputCrossoverRate.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(592, 248);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(82, 15);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Mutation Rate";
+            // 
+            // inputMutationRate
+            // 
+            this.inputMutationRate.DecimalPlaces = 2;
+            this.inputMutationRate.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.inputMutationRate.Location = new System.Drawing.Point(701, 246);
+            this.inputMutationRate.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.inputMutationRate.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.inputMutationRate.Name = "inputMutationRate";
+            this.inputMutationRate.Size = new System.Drawing.Size(71, 23);
+            this.inputMutationRate.TabIndex = 5;
+            this.inputMutationRate.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(592, 277);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(94, 15);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Tournament Size";
+            // 
+            // inputTournamentSize
+            // 
+            this.inputTournamentSize.Location = new System.Drawing.Point(701, 275);
+            this.inputTournamentSize.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.inputTournamentSize.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.inputTournamentSize.Name = "inputTournamentSize";
+            this.inputTournamentSize.Size = new System.Drawing.Size(71, 23);
+            this.inputTournamentSize.TabIndex = 5;
+            this.inputTournamentSize.Value = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            // 
             // NQueens
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 736);
+            this.Controls.Add(this.inputTournamentSize);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.inputMutationRate);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.inputCrossoverRate);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.inputMaxPopulation);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.inputElites);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.inputBoardSize);
             this.Controls.Add(this.label2);
@@ -174,6 +366,11 @@
             this.Text = "Best Solution: ";
             ((System.ComponentModel.ISupportInitialize)(this.inputGenerationsNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inputBoardSize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inputElites)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inputMaxPopulation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inputCrossoverRate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inputMutationRate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inputTournamentSize)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,6 +388,16 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown inputBoardSize;
         private System.Windows.Forms.Button buttonReset;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown inputElites;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown inputMaxPopulation;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown inputCrossoverRate;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown inputMutationRate;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown inputTournamentSize;
     }
 }
 

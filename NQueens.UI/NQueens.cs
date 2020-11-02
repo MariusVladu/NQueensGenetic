@@ -21,13 +21,6 @@ namespace NQueens.UI
         private IInitialPopulationProvider initialPopulationProvider;
         private Settings settings;
 
-        private int boardSize;
-        private int numberOfElites = 4;
-        private int initialPopulationSize = 100;
-        private int maxPopulationSize = 100;
-        private double crossoverRate = 0.5;
-        private double mutationRate = 0.1;
-
         private List<double> generationsPlotData;
         private List<double> averageScorePlotData;
         private List<double> bestScorePlotData;
@@ -54,17 +47,15 @@ namespace NQueens.UI
 
         private void InitializeGeneticAlgorithm()
         {
-            boardSize = Convert.ToInt32(inputBoardSize.Value);
-
             settings = new Settings
             {
-                BoardSize = boardSize,
-                NumberOfGenes = boardSize,
-                NumberOfElites = numberOfElites,
-                InitialPopulationSize = initialPopulationSize,
-                MaxPopulationSize = maxPopulationSize,
-                CrossoverRate = crossoverRate,
-                MutationRate = mutationRate
+                BoardSize = Convert.ToInt32(inputBoardSize.Value),
+                NumberOfGenes = Convert.ToInt32(inputBoardSize.Value),
+                NumberOfElites = Convert.ToInt32(inputElites.Value),
+                InitialPopulationSize = Convert.ToInt32(inputMaxPopulation.Value),
+                MaxPopulationSize = Convert.ToInt32(inputMaxPopulation.Value),
+                CrossoverRate = Convert.ToDouble(inputCrossoverRate.Value),
+                MutationRate = Convert.ToDouble(inputMutationRate.Value)
             };
 
             geneticAlgorithm = new GeneticAlgorithm(settings, initialPopulationProvider, fitnessFunction, selectionOperator, elitistSelection, crossoverOperator, mutationOperator);
@@ -111,7 +102,7 @@ namespace NQueens.UI
         {
             var generationNumberString = geneticAlgorithm.CurrentGenerationNumber.ToString().PadLeft(4, '0'); ;
             var averageScore2DecimalPlaces = string.Format("{0:00.00}", geneticAlgorithm.AverageScore);
-            labelGenerationInfo.Text = $"Generation #{generationNumberString}\nAverage: {averageScore2DecimalPlaces}\nBest Solution: {geneticAlgorithm.CurrentBestSolution}";
+            labelGenerationInfo.Text = $"Generation #{generationNumberString}\nAverage: {averageScore2DecimalPlaces}\nBest Solution: {geneticAlgorithm.CurrentBestSolution}\nBest Score: {geneticAlgorithm.CurrentBestSolution.FitnessScore}";
         }
 
         private void buttonRun_Click(object sender, EventArgs e)
