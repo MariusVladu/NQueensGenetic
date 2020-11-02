@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace KnapsackGenetic.UI
 {
-    public partial class KnapsackGenetic : Form
+    public partial class NQueens : Form
     {
         private GeneticAlgorithm geneticAlgorithm;
         private IFitnessFunction fitnessFunction;
@@ -33,7 +33,7 @@ namespace KnapsackGenetic.UI
         private List<double> averageScorePlotData;
         private List<double> bestScorePlotData;
 
-        public KnapsackGenetic()
+        public NQueens()
         {
             InitializeComponent();
 

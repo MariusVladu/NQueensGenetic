@@ -1,6 +1,6 @@
 ﻿namespace KnapsackGenetic.UI
 {
-    partial class KnapsackGenetic
+    partial class NQueens
     {
         /// <summary>
         ///  Required designer variable.

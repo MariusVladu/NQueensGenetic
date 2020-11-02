@@ -17,7 +17,7 @@ namespace KnapsackGenetic.UI
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new KnapsackGenetic());
+            Application.Run(new NQueens());
         }
     }
 }

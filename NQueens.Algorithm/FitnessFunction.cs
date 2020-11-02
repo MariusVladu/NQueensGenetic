@@ -1,28 +1,40 @@
 ﻿using KnapsackGenetic.Algorithm.Contracts;
 using KnapsackGenetic.Domain;
-using System.Collections.Generic;
+using System;
 
 namespace KnapsackGenetic.Algorithm
 {
     public class FitnessFunction : IFitnessFunction
     {
-        public int GetFitnessScore(Individual individual, int weightLimit, List<Item> items)
+        public int GetFitnessScore(Individual individual)
         {
-            var score = 0;
-            var totalWeight = 0;
-            
-            for (int i = 0; i < items.Count; i++)
+            var numberOfPossibleAttacks = 0;
+
+            for (byte i = 0; i < individual.Genes.Length; i++)
             {
-                if (individual.Genes[i] == true)
+                for (byte j = 0; j < individual.Genes.Length; j++)
                 {
-                    score += items[i].Value;
-                    totalWeight += items[i].Weight;
+                    if (i == j) continue;
+
+                    if (QueenCanAttack(
+                            queen1Row: individual.Genes[i],
+                            queen1Col: i,
+                            queen2Row: individual.Genes[j],
+                            queen2Col: j))
+                    {
+                        numberOfPossibleAttacks++;
+                    }
                 }
             }
 
-            return totalWeight <= weightLimit
-                ? score
-                : 0;
+            return numberOfPossibleAttacks;
+        }
+
+        private bool QueenCanAttack(byte queen1Row, byte queen1Col, byte queen2Row, byte queen2Col)
+        {
+            return queen1Col == queen2Col
+                || queen1Row == queen2Row
+                || Math.Abs(queen1Col - queen2Col) == Math.Abs(queen1Row - queen2Row);
         }
     }
 }
