@@ -9,7 +9,7 @@ namespace KnapsackGenetic.Algorithm
     {
         public Individual SelectOne(List<Solution> solutions)
         {
-            return solutions.OrderByDescending(s => s.FitnessScore).First().Individual;
+            return solutions.OrderBy(s => s.FitnessScore).First().Individual;
         }
     }
 }

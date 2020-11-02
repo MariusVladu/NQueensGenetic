@@ -62,6 +62,10 @@ namespace KnapsackGenetic.Algorithm
                 if(!GeneAlreadyExists(parent.Genes[i], left, right, offspring))
                     genesInOrder.Enqueue(parent.Genes[i]);
 
+            for (int i = 0; i < right; i++)
+                if (!GeneAlreadyExists(parent.Genes[i], left, right, offspring))
+                    genesInOrder.Enqueue(parent.Genes[i]);
+
             return genesInOrder;
         }
 

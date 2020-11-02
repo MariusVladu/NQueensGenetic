@@ -75,8 +75,8 @@ namespace KnapsackGenetic.Algorithm
         {
             CurrentGenerationNumber++;
             CurrentSolutions = GetCurrentSolutions();
-            ComputeAverageScore();
-            ComputeCurrentBestSolution();
+            AverageScore = CurrentSolutions.Average(s => s.FitnessScore);
+            CurrentBestSolution = CurrentSolutions.OrderBy(s => s.FitnessScore).First();
         }
 
         private void AddElites(List<Individual> nextGeneration)
@@ -91,23 +91,6 @@ namespace KnapsackGenetic.Algorithm
             }
         }
 
-        private void ComputeAverageScore()
-        {
-            AverageScore = CurrentSolutions.Average(s => s.FitnessScore);
-        }
-
-        private void ComputeCurrentBestSolution()
-        {
-            CurrentBestSolution = CurrentSolutions.OrderByDescending(s => s.FitnessScore).First();
-        }
-
-        private void RemoveFromCurrentSolutions(Individual individual)
-        {
-            var indexToRemove = CurrentSolutions.FindIndex(s => s.Individual == individual);
-
-            CurrentSolutions.RemoveAt(indexToRemove);
-        }
-
         private List<Solution> GetCurrentSolutions()
         {
             var solutions = new List<Solution>();
@@ -115,7 +98,7 @@ namespace KnapsackGenetic.Algorithm
                 solutions.Add(new Solution
                 {
                     Individual = individual,
-                    FitnessScore = fitnessFunction.GetFitnessScore(individual, settings.WeightLimit, settings.Items)
+                    FitnessScore = fitnessFunction.GetFitnessScore(individual)
                 });
 
             return solutions;
