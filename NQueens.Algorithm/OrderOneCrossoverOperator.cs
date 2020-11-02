@@ -1,5 +1,6 @@
 ﻿using KnapsackGenetic.Algorithm.Contracts;
 using KnapsackGenetic.Domain;
+using NQueens.Algorithm.Helpers;
 using System;
 using System.Collections.Generic;
 
@@ -27,12 +28,7 @@ namespace KnapsackGenetic.Algorithm
             var left = random.Next(numberOfGenes);
             var right = random.Next(numberOfGenes);
 
-            if (left < right)
-            {
-                var temp = left;
-                left = right;
-                right = temp;
-            }
+            CommonFunctions.SwapIfInvalidInterval(ref left, ref right);
 
             var offspring1 = GetOffspring(left, right, numberOfGenes, parent1, parent2);
             var offspring2 = GetOffspring(left, right, numberOfGenes, parent2, parent1);
